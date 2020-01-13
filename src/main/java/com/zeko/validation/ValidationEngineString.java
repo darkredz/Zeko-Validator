@@ -987,7 +987,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeFormat(String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeFormat(s, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeFormat(s, format, timeZone), message, String.format("dateTimeFormat;%s;%s", format, timezone));
     }
 
     public ValidationEngineString dateTimeFormat(String format, TimeZone timeZone) {
@@ -995,11 +995,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeFormat(String format, String message) {
-        return must((s) -> RuleSet.dateTimeFormat(s, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeFormat(s, format), message, String.format("dateTimeFormat;%s;%s", format));
     }
 
     public ValidationEngineString dateTimeFormat(String message) {
-        return must((s) -> RuleSet.dateTimeFormat(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeFormat(s), message, "dateTimeFormat");
     }
 
     public ValidationEngineString dateTimeFormat() {
@@ -1007,7 +1007,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format, timeZone), message, String.format("dateTimeBetween;%s;%s;%s;%s", start, end, format, timezone));
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String format, TimeZone timeZone) {
@@ -1015,11 +1015,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String format, String message) {
-        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format), message, String.format("dateTimeBetween;%s;%s;%s", start, end, format));
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String message) {
-        return must((s) -> RuleSet.dateTimeBetween(s, start, end), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBetween(s, start, end), message, String.format("dateTimeBetween;%s;%s", start, end));
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end) {
@@ -1027,7 +1027,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format, timeZone), message, String.format("dateTimeAfter;%s;%s;%s", compareWith, format, timezone));
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String format, TimeZone timeZone) {
@@ -1035,11 +1035,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format), message, String.format("dateTimeAfter;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeAfter(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfter(s, compareWith), message, String.format("dateTimeAfter;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith) {
@@ -1047,7 +1047,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format, timeZone), message, String.format("dateTimeBefore;%s;%s;%s", compareWith, format, timezone));
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String format, TimeZone timeZone) {
@@ -1055,11 +1055,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format), message, String.format("dateTimeBefore;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeBefore(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBefore(s, compareWith), message, String.format("dateTimeBefore;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith) {
@@ -1067,7 +1067,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format, timeZone), message, String.format("dateTimeEq;%s;%s;%s", compareWith, format, timezone));
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String format, TimeZone timeZone) {
@@ -1075,11 +1075,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format), message, String.format("dateTimeEq;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeEq(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEq(s, compareWith), message, String.format("dateTimeEq;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeEq(String compareWith) {
@@ -1087,7 +1087,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format, timeZone), message, String.format("dateTimeAfterWeek;%s;%s;%s", compareWith, format, timezone));
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String format, TimeZone timeZone) {
@@ -1095,11 +1095,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format), message, String.format("dateTimeAfterWeek;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith), message, String.format("dateTimeAfterWeek;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith) {
@@ -1107,7 +1107,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeWeek(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith, format, timeZone), message, String.format("dateTimeBeforeWeek;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeBeforeWeek(String compareWith, String format, TimeZone timeZone) {
@@ -1115,11 +1115,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeWeek(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith, format), message, String.format("dateTimeBeforeWeek;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeBeforeWeek(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeWeek(s, compareWith), String.format("dateTimeBeforeWeek;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeBeforeWeek(String compareWith) {
@@ -1127,7 +1127,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqWeek(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith, format, timeZone), message, String.format("dateTimeEqWeek;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeEqWeek(String compareWith, String format, TimeZone timeZone) {
@@ -1135,11 +1135,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqWeek(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith, format), message, String.format("dateTimeEqWeek;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeEqWeek(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqWeek(s, compareWith), message, String.format("dateTimeEqWeek;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeEqWeek(String compareWith) {
@@ -1147,7 +1147,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterMonth(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith, format, timeZone), message, String.format("dateTimeAfterMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeAfterMonth(String compareWith, String format, TimeZone timeZone) {
@@ -1155,11 +1155,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterMonth(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith, format), message, String.format("dateTimeAfterMonth;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeAfterMonth(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterMonth(s, compareWith), message, String.format("dateTimeAfterMonth;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeAfterMonth(String compareWith) {
@@ -1167,7 +1167,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeMonth(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith, format, timeZone), message, String.format("dateTimeBeforeMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeBeforeMonth(String compareWith, String format, TimeZone timeZone) {
@@ -1175,11 +1175,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeMonth(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith, format), message, String.format("dateTimeBeforeMonth;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeBeforeMonth(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeMonth(s, compareWith), message, String.format("dateTimeBeforeMonth;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeBeforeMonth(String compareWith) {
@@ -1187,7 +1187,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqMonth(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith, format, timeZone), message, String.format("dateTimeEqMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeEqMonth(String compareWith, String format, TimeZone timeZone) {
@@ -1195,11 +1195,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqMonth(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith, format), message, String.format("dateTimeEqMonth;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeEqMonth(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqMonth(s, compareWith), message, String.format("dateTimeEqMonth;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeEqMonth(String compareWith) {
@@ -1207,7 +1207,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterYear(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith, format, timeZone), message, String.format("dateTimeAfterYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeAfterYear(String compareWith, String format, TimeZone timeZone) {
@@ -1215,11 +1215,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterYear(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith, format), message, String.format("dateTimeAfterYear;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeAfterYear(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeAfterYear(s, compareWith), message, String.format("dateTimeAfterYear;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeAfterYear(String compareWith) {
@@ -1227,7 +1227,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeYear(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith, format, timeZone), message, String.format("dateTimeBeforeYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeBeforeYear(String compareWith, String format, TimeZone timeZone) {
@@ -1235,11 +1235,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBeforeYear(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith, format), message, String.format("dateTimeBeforeYear;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeBeforeYear(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeBeforeYear(s, compareWith), message, String.format("dateTimeBeforeYear;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeBeforeYear(String compareWith) {
@@ -1247,7 +1247,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqYear(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith, format, timeZone), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith, format, timeZone), message, String.format("dateTimeEqYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeEqYear(String compareWith, String format, TimeZone timeZone) {
@@ -1255,11 +1255,11 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEqYear(String compareWith, String format, String message) {
-        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith, format), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith, format), message, String.format("dateTimeEqYear;%s;%s", compareWith, format));
     }
 
     public ValidationEngineString dateTimeEqYear(String compareWith, String message) {
-        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith), message, new Object(){}.getClass().getEnclosingMethod().getName());
+        return must((s) -> RuleSet.dateTimeEqYear(s, compareWith), message, String.format("dateTimeEqYear;%s", compareWith));
     }
 
     public ValidationEngineString dateTimeEqYear(String compareWith) {
