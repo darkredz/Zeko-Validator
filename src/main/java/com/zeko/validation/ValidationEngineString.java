@@ -624,13 +624,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateFormat(null);
     }
 
-    public ValidationEngineString dateBetween(String start, String end, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateBetween(s, start, end, format, timezone), message,
-                String.format("dateBetween;%s;%s;%s;%s", start, end, format, timezone));
+    public ValidationEngineString dateBetween(String start, String end, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateBetween(s, start, end, format, timeZone), message,
+                String.format("dateBetween;%s;%s;%s;%s", start, end, format, timeZone));
     }
 
-    public ValidationEngineString dateBetween(String start, String end, String format, TimeZone timezone) {
-        return dateBetween(start, end, format, timezone, null);
+    public ValidationEngineString dateBetween(String start, String end, String format, TimeZone timeZone) {
+        return dateBetween(start, end, format, timeZone, null);
     }
 
     public ValidationEngineString dateBetween(String start, String end, String format, String message) {
@@ -647,13 +647,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateBetween(start, end, null);
     }
 
-    public ValidationEngineString dateAfter(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateAfter(s, compareWith, format, timezone), message,
-                String.format("dateAfter;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateAfter(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateAfter(s, compareWith, format, timeZone), message,
+                String.format("dateAfter;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateAfter(String compareWith, String format, TimeZone timezone) {
-        return dateAfter(compareWith, format, timezone, null);
+    public ValidationEngineString dateAfter(String compareWith, String format, TimeZone timeZone) {
+        return dateAfter(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateAfter(String compareWith, String format, String message) {
@@ -670,13 +670,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateAfter(compareWith, null);
     }
 
-    public ValidationEngineString dateBefore(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateBefore(s, compareWith, format, timezone), message,
-                String.format("dateBefore;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateBefore(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateBefore(s, compareWith, format, timeZone), message,
+                String.format("dateBefore;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateBefore(String compareWith, String format, TimeZone timezone) {
-        return dateBefore(compareWith, format, timezone, null);
+    public ValidationEngineString dateBefore(String compareWith, String format, TimeZone timeZone) {
+        return dateBefore(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateBefore(String compareWith, String format, String message) {
@@ -693,13 +693,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateBefore(compareWith, null);
     }
 
-    public ValidationEngineString dateEq(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateEq(s, compareWith, format, timezone), message,
-                String.format("dateEq;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateEq(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateEq(s, compareWith, format, timeZone), message,
+                String.format("dateEq;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateEq(String compareWith, String format, TimeZone timezone) {
-        return dateEq(compareWith, format, timezone, null);
+    public ValidationEngineString dateEq(String compareWith, String format, TimeZone timeZone) {
+        return dateEq(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateEq(String compareWith, String format, String message) {
@@ -716,13 +716,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateEq(compareWith, null);
     }
 
-    public ValidationEngineString dateAfterYear(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateAfterYear(s, compareWith, format, timezone), message,
-                String.format("dateAfterYear;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateAfterYear(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateAfterYear(s, compareWith, format, timeZone), message,
+                String.format("dateAfterYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateAfterYear(String compareWith, String format, TimeZone timezone) {
-        return dateAfterYear(compareWith, format, timezone, null);
+    public ValidationEngineString dateAfterYear(String compareWith, String format, TimeZone timeZone) {
+        return dateAfterYear(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateAfterYear(String compareWith, String format, String message) {
@@ -739,13 +739,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateAfterYear(compareWith, null);
     }
 
-    public ValidationEngineString dateBeforeYear(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateBeforeYear(s, compareWith, format, timezone), message,
-                String.format("dateBeforeYear;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateBeforeYear(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateBeforeYear(s, compareWith, format, timeZone), message,
+                String.format("dateBeforeYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateBeforeYear(String compareWith, String format, TimeZone timezone) {
-        return dateBeforeYear(compareWith, format, timezone, null);
+    public ValidationEngineString dateBeforeYear(String compareWith, String format, TimeZone timeZone) {
+        return dateBeforeYear(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateBeforeYear(String compareWith, String format, String message) {
@@ -762,13 +762,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateBeforeYear(compareWith, null);
     }
 
-    public ValidationEngineString dateEqYear(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateEqYear(s, compareWith, format, timezone), message,
-                String.format("dateEqYear;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateEqYear(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateEqYear(s, compareWith, format, timeZone), message,
+                String.format("dateEqYear;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateEqYear(String compareWith, String format, TimeZone timezone) {
-        return dateEqYear(compareWith, format, timezone, null);
+    public ValidationEngineString dateEqYear(String compareWith, String format, TimeZone timeZone) {
+        return dateEqYear(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateEqYear(String compareWith, String format, String message) {
@@ -785,13 +785,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateEqYear(compareWith, null);
     }
 
-    public ValidationEngineString dateAfterMonth(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateAfterMonth(s, compareWith, format, timezone), message,
-                String.format("dateAfterMonth;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateAfterMonth(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateAfterMonth(s, compareWith, format, timeZone), message,
+                String.format("dateAfterMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateAfterMonth(String compareWith, String format, TimeZone timezone) {
-        return dateAfterMonth(compareWith, format, timezone, null);
+    public ValidationEngineString dateAfterMonth(String compareWith, String format, TimeZone timeZone) {
+        return dateAfterMonth(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateAfterMonth(String compareWith, String format, String message) {
@@ -808,13 +808,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateAfterMonth(compareWith, null);
     }
 
-    public ValidationEngineString dateBeforeMonth(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateBeforeMonth(s, compareWith, format, timezone), message,
-                String.format("dateBeforeMonth;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateBeforeMonth(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateBeforeMonth(s, compareWith, format, timeZone), message,
+                String.format("dateBeforeMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateBeforeMonth(String compareWith, String format, TimeZone timezone) {
-        return dateBeforeMonth(compareWith, format, timezone, null);
+    public ValidationEngineString dateBeforeMonth(String compareWith, String format, TimeZone timeZone) {
+        return dateBeforeMonth(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateBeforeMonth(String compareWith, String format, String message) {
@@ -831,13 +831,13 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return dateBeforeMonth(compareWith, null);
     }
 
-    public ValidationEngineString dateEqMonth(String compareWith, String format, TimeZone timezone, String message) {
-        return must((s) -> RuleSet.dateEqMonth(s, compareWith, format, timezone), message,
-                String.format("dateEqMonth;%s;%s;%s", compareWith, format, timezone));
+    public ValidationEngineString dateEqMonth(String compareWith, String format, TimeZone timeZone, String message) {
+        return must((s) -> RuleSet.dateEqMonth(s, compareWith, format, timeZone), message,
+                String.format("dateEqMonth;%s;%s;%s", compareWith, format, timeZone));
     }
 
-    public ValidationEngineString dateEqMonth(String compareWith, String format, TimeZone timezone) {
-        return dateEqMonth(compareWith, format, timezone, null);
+    public ValidationEngineString dateEqMonth(String compareWith, String format, TimeZone timeZone) {
+        return dateEqMonth(compareWith, format, timeZone, null);
     }
 
     public ValidationEngineString dateEqMonth(String compareWith, String format, String message) {
@@ -987,7 +987,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeFormat(String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeFormat(s, format, timeZone), message, String.format("dateTimeFormat;%s;%s", format, timezone));
+        return must((s) -> RuleSet.dateTimeFormat(s, format, timeZone), message, String.format("dateTimeFormat;%s;%s", format, timeZone));
     }
 
     public ValidationEngineString dateTimeFormat(String format, TimeZone timeZone) {
@@ -1007,7 +1007,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format, timeZone), message, String.format("dateTimeBetween;%s;%s;%s;%s", start, end, format, timezone));
+        return must((s) -> RuleSet.dateTimeBetween(s, start, end, format, timeZone), message, String.format("dateTimeBetween;%s;%s;%s;%s", start, end, format, timeZone));
     }
 
     public ValidationEngineString dateTimeBetween(String start, String end, String format, TimeZone timeZone) {
@@ -1027,7 +1027,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format, timeZone), message, String.format("dateTimeAfter;%s;%s;%s", compareWith, format, timezone));
+        return must((s) -> RuleSet.dateTimeAfter(s, compareWith, format, timeZone), message, String.format("dateTimeAfter;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeAfter(String compareWith, String format, TimeZone timeZone) {
@@ -1047,7 +1047,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format, timeZone), message, String.format("dateTimeBefore;%s;%s;%s", compareWith, format, timezone));
+        return must((s) -> RuleSet.dateTimeBefore(s, compareWith, format, timeZone), message, String.format("dateTimeBefore;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeBefore(String compareWith, String format, TimeZone timeZone) {
@@ -1067,7 +1067,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format, timeZone), message, String.format("dateTimeEq;%s;%s;%s", compareWith, format, timezone));
+        return must((s) -> RuleSet.dateTimeEq(s, compareWith, format, timeZone), message, String.format("dateTimeEq;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeEq(String compareWith, String format, TimeZone timeZone) {
@@ -1087,7 +1087,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String format, TimeZone timeZone, String message) {
-        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format, timeZone), message, String.format("dateTimeAfterWeek;%s;%s;%s", compareWith, format, timezone));
+        return must((s) -> RuleSet.dateTimeAfterWeek(s, compareWith, format, timeZone), message, String.format("dateTimeAfterWeek;%s;%s;%s", compareWith, format, timeZone));
     }
 
     public ValidationEngineString dateTimeAfterWeek(String compareWith, String format, TimeZone timeZone) {
