@@ -1,12 +1,13 @@
 package com.zeko.validation;
 
 import org.apache.commons.lang3.math.NumberUtils;
-
+import org.apache.commons.lang3.ArrayUtils;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 public class Validator {
     private Notification note;
@@ -90,10 +91,48 @@ public class Validator {
         }
         rules.forEach((ruleName, args) -> {
             if (ruleName != "required" && ruleName != "requiredLoose" && ruleName != "optional") {
-                try {
-                    invoke(validate, ruleName, args);
-                } catch (Exception err) {
-                    err.printStackTrace();
+                if (ruleName == "inArray") {
+                    if (args.get(0) instanceof Integer) {
+                        int[] items = ArrayUtils.toPrimitive(args.toArray(new Integer[args.size()]));
+                        validate.inArray(items);
+                    } else {
+                        String[] items = new String[args.size()];
+                        args.toArray(items);
+                        validate.inArray(items);
+                    }
+                }
+                else if (ruleName == "notInArray") {
+                    if (args.get(0) instanceof Integer) {
+                        int[] items = ArrayUtils.toPrimitive(args.toArray(new Integer[args.size()]));
+                        validate.notInArray(items);
+                    } else {
+                        String[] items = new String[args.size()];
+                        args.toArray(items);
+                        validate.notInArray(items);
+                    }
+                }
+                else if (ruleName == "url" && args.size() > 0) {
+                    if (args.get(0) instanceof String) {
+                        String[] schemes = new String[args.size()];
+                        args.toArray(schemes);
+                        validate.url(schemes);
+                    }
+                }
+                else if (ruleName == "separateByInArray" && args.size() > 0) {
+                    if (args.get(0) instanceof String) {
+                        String delimiter = (String) args.get(0);
+                        String[] all = new String[args.size()];
+                        args.toArray(all);
+                        String[] items = Arrays.copyOfRange(all, 1, all.length - 1);
+                        validate.separateByInArray(delimiter, items);
+                    }
+                }
+                else {
+                    try {
+                        invoke(validate, ruleName, args);
+                    } catch (Exception err) {
+                        err.printStackTrace();
+                    }
                 }
             }
         });
@@ -133,6 +172,7 @@ public class Validator {
                 m.invoke(instance, args.toArray());
                 return m;
             } catch (Exception err) {
+                err.printStackTrace();
             }
         }
         return null;
