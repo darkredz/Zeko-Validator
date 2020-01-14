@@ -428,7 +428,6 @@ public class RuleSet {
 
     public static boolean inArray(String s, String[] arr) {
         boolean result = false;
-
         for (String i : arr) {
             if (i.equals(s)) {
                 result = true;
