@@ -1,4 +1,4 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
 import java.util.Arrays;
 import java.util.Objects;

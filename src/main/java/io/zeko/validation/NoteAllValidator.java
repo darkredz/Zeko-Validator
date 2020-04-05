@@ -1,4 +1,4 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
 import java.util.List;
 import java.util.Map;

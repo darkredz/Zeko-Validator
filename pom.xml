@@ -2,108 +2,134 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-<groupId>com.zeko.validation</groupId>
-<artifactId>zeko-validator</artifactId>
-<version>1.0.3</version>
+    <groupId>com.github.darkredz</groupId>
+    <artifactId>zeko-validator</artifactId>
+    <version>1.0.4</version>
+    <packaging>jar</packaging>
 
-<packaging>jar</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>
+        A Java validation library by providing a fluent API and abstracting away the conditional constructs of the language.
+        This is consider a rewrite base on validly to focus on validating raw string inputs from HTTP request with more than 100 preset validation rules.
+        The library had been used in various Kotlin based project as well.
+    </description>
+    <url>https://github.com/darkredz/Zeko-Validator</url>
 
-<name>com.zeko.validation zeko-validator</name>
+    <!-- License for the project, pick a License from opensource.org -->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-<repositories>
-</repositories>
+    <!-- Contact for developers on project -->
+    <developers>
+        <developer>
+            <name>Leng Sheng Hong</name>
+            <email>darkredz@gmail.com</email>
+            <organization>Github</organization>
+            <!-- URL for Organization, URL to your github profile work well here -->
+            <organizationUrl>https://github.com/darkredz</organizationUrl>
+            <timezone>UTC+0:</timezone>
+        </developer>
+    </developers>
 
-<properties>
-    <jupiter.version>5.2.0</jupiter.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <github.global.server>github</github.global.server>
-</properties>
+    <repositories>
+    </repositories>
 
-<dependencies>
-    <dependency>
-        <groupId>commons-validator</groupId>
-        <artifactId>commons-validator</artifactId>
-        <version>1.6</version>
-    </dependency>
+    <properties>
+        <jupiter.version>5.2.0</jupiter.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <github.global.server>github</github.global.server>
+    </properties>
 
-    <dependency>
-        <groupId>org.apache.commons</groupId>
-        <artifactId>commons-lang3</artifactId>
-        <version>3.9</version>
-    </dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>1.6</version>
+        </dependency>
 
-<build>
-    <pluginManagement>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                    <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+                    <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+                    <includes><include>**/*</include></includes>
+                    <repositoryName>Zeko-Validator</repositoryName>      <!-- github repo name -->
+                    <repositoryOwner>darkredz</repositoryOwner>    <!-- github username  -->
+                    <oauth2Token></oauth2Token>
+                </configuration>
+                <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.1</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
                 </configuration>
             </plugin>
         </plugins>
-    </pluginManagement>
+    </build>
 
-    <sourceDirectory>src/main/java</sourceDirectory>
-    <testSourceDirectory>src/test/java</testSourceDirectory>
-
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>2.6</version>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                    </manifest>
-                </archive>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>com.github.github</groupId>
-            <artifactId>site-maven-plugin</artifactId>
-            <version>0.12</version>
-            <configuration>
-                <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
-                <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
-                <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
-                <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
-                <includes><include>**/*</include></includes>
-                <repositoryName>Zeko-Validator</repositoryName>      <!-- github repo name -->
-                <repositoryOwner>darkredz</repositoryOwner>    <!-- github username  -->
-                <oauth2Token></oauth2Token>
-            </configuration>
-            <executions>
-                <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
-                <execution>
-                    <goals>
-                        <goal>site</goal>
-                    </goals>
-                    <phase>deploy</phase>
-                </execution>
-            </executions>
-        </plugin>
-        <plugin>
-            <artifactId>maven-deploy-plugin</artifactId>
-            <version>2.8.1</version>
-            <configuration>
-                <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-
-<distributionManagement>
-    <repository>
-        <id>internal.repo</id>
-        <name>Temporary Staging Repository</name>
-        <url>file://${project.build.directory}/mvn-repo</url>
-    </repository>
-</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </repository>
+    </distributionManagement>
 </project>

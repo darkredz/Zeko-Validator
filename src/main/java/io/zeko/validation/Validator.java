@@ -1,4 +1,4 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.ArrayUtils;
