@@ -1,4 +1,4 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class Notification implements Note {
         this.convertFieldName = convertFieldName;
         this.customErrorMessages = customErrorMessages;
     }
-    
+
     protected Notification(Map<String, List<String>> fieldMessages) {
         this.fieldMessages = fieldMessages;
     }

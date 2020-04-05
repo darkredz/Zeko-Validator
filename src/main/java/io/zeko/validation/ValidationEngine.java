@@ -1,6 +1,6 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
-import com.zeko.validation.excpetion.ValidationErrorException;
+import io.zeko.validation.excpetion.ValidationErrorException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;

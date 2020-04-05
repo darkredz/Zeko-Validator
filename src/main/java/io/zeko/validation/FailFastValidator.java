@@ -1,6 +1,6 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
-import com.zeko.validation.excpetion.ValidationErrorException;
+import io.zeko.validation.excpetion.ValidationErrorException;
 
 /**
  * Class for starting a validation rule in Fail-Fast mode:

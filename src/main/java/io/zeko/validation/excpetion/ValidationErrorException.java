@@ -1,4 +1,4 @@
-package com.zeko.validation.excpetion;
+package io.zeko.validation.excpetion;
 
 /**
  * Exception for Fail-Fast validator mode.

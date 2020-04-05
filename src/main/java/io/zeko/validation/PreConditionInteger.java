@@ -1,4 +1,4 @@
-package com.zeko.validation;
+package io.zeko.validation;
 
 public class PreConditionInteger extends PreCondition<Integer, ValidationEngineInteger> {
 
