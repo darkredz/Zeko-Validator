@@ -235,6 +235,38 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
         return alphaNumUnderscoreSpace(null);
     }
 
+    public ValidationEngineString alphaNumQuoteSpace(String message) {
+        return must((s) -> RuleSet.alphaNumQuoteSpace(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
+    }
+
+    public ValidationEngineString alphaNumQuoteSpace() {
+        return alphaNumQuoteSpace(null);
+    }
+
+    public ValidationEngineString alphaNumQuoteDashSpace(String message) {
+        return must((s) -> RuleSet.alphaNumQuoteDashSpace(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
+    }
+
+    public ValidationEngineString alphaNumQuoteDashSpace() {
+        return alphaNumQuoteDashSpace(null);
+    }
+
+    public ValidationEngineString alphaQuoteSpace(String message) {
+        return must((s) -> RuleSet.alphaQuoteSpace(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
+    }
+
+    public ValidationEngineString alphaQuoteSpace() {
+        return alphaQuoteSpace(null);
+    }
+
+    public ValidationEngineString alphaQuoteDashSpace(String message) {
+        return must((s) -> RuleSet.alphaQuoteDashSpace(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
+    }
+
+    public ValidationEngineString alphaQuoteDashSpace() {
+        return alphaQuoteDashSpace(null);
+    }
+
     public ValidationEngineString allLowerCase(String message) {
         return must((s) -> RuleSet.allLowerCase(s), message, new Object(){}.getClass().getEnclosingMethod().getName());
     }
