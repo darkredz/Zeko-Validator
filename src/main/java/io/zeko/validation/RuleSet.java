@@ -539,7 +539,7 @@ public class RuleSet {
     }
 
     public static boolean dateFormat(String s) {
-        return dateFormat("yyyy-MM-dd");
+        return dateFormat(s, "yyyy-MM-dd");
     }
 
     public static boolean dateBetween(String s, String start, String end, String format, TimeZone timezone) {
