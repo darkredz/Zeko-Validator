@@ -127,6 +127,22 @@ public class RuleSet {
         return s.matches("^[a-zA-Z0-9\\_\\s]+$");
     }
 
+    public static boolean alphaNumQuoteSpace(String s) {
+        return s.matches("^[a-zA-Z0-9\\'\\s]+$");
+    }
+
+    public static boolean alphaNumQuoteDashSpace(String s) {
+        return s.matches("^[a-zA-Z0-9\\'\\-\\s]+$");
+    }
+
+    public static boolean alphaQuoteSpace(String s) {
+        return s.matches("^[a-zA-Z\\'\\s]+$");
+    }
+
+    public static boolean alphaQuoteDashSpace(String s) {
+        return s.matches("^[a-zA-Z\\'\\-\\s]+$");
+    }
+
     public static boolean allLowerCase(String s) {
         return s.equals(s.toLowerCase());
     }
