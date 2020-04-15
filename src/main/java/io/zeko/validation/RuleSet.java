@@ -736,7 +736,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareTime(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareTime(c, compareTime) == 1;
     }
 
     public static boolean timeAfter(String s, String compareWith) {
@@ -747,7 +748,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareTime(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareTime(c, compareTime) == -1;
     }
 
     public static boolean timeBefore(String s, String compareWith) {
@@ -758,7 +760,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareTime(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareTime(c, compareTime) == 0;
     }
 
     public static boolean timeEq(String s, String compareWith) {
@@ -769,7 +772,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareHours(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareHours(c, compareTime) == 1;
     }
 
     public static boolean timeAfterHour(String s, String compareWith) {
@@ -780,7 +784,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareHours(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareHours(c, compareTime) == -1;
     }
 
     public static boolean timeBeforeHour(String s, String compareWith) {
@@ -791,7 +796,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareHours(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareHours(c, compareTime) == 0;
     }
 
     public static boolean timeEqHour(String s, String compareWith) {
@@ -802,7 +808,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareMinutes(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareMinutes(c, compareTime) == 1;
     }
 
     public static boolean timeAfterMinute(String s, String compareWith) {
@@ -813,7 +820,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareMinutes(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareMinutes(c, compareTime) == -1;
     }
 
     public static boolean timeBeforeMinute(String s, String compareWith) {
@@ -824,7 +832,8 @@ public class RuleSet {
         TimeValidator v = TimeValidator.getInstance();
         Calendar c = v.validate(s, format);
         Calendar compareTime = v.validate(compareWith, format);
-        return c != null && v.compareMinutes(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareMinutes(c, compareTime) == 0;
     }
 
     public static boolean timeEqMinute(String s, String compareWith) {
@@ -851,11 +860,10 @@ public class RuleSet {
         Calendar d = v.validate(s, format, timeZone);
         Calendar startTime = v.validate(start, format, timeZone);
         Calendar endTime = v.validate(end, format, timeZone);
+        if (d == null || startTime == null || endTime == null) return false;
         int resStart = v.compareDates(startTime, d);
         int resEnd = v.compareDates(endTime, d);
-
-        return d != null && startTime != null && endTime != null &&
-                (resStart == -1 || resStart == 0) && (resEnd == 1 || resEnd == 0);
+        return (resStart == -1 || resStart == 0) && (resEnd == 1 || resEnd == 0);
     }
 
     public static boolean dateTimeBetween(String s, String start, String end, String format) {
@@ -870,7 +878,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareDates(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareDates(c, compareTime) == 1;
     }
 
     public static boolean dateTimeAfter(String s, String compareWith, String  format) {
@@ -885,7 +894,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareDates(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareDates(c, compareTime) == -1;
     }
 
     public static boolean dateTimeBefore(String s, String compareWith, String  format) {
@@ -900,7 +910,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareDates(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareDates(c, compareTime) == 0;
     }
 
     public static boolean dateTimeEq(String s, String compareWith, String  format) {
@@ -911,12 +922,12 @@ public class RuleSet {
         return dateTimeEq(s, compareWith, "yyyy-MM-dd'T'H:mm:ss");
     }
 
-
     public static boolean dateTimeAfterWeek(String s, String compareWith, String format, TimeZone timeZone) {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareWeeks(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareWeeks(c, compareTime) == 1;
     }
 
     public static boolean dateTimeAfterWeek(String s, String compareWith, String  format) {
@@ -931,7 +942,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareWeeks(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareWeeks(c, compareTime) == -1;
     }
 
     public static boolean dateTimeBeforeWeek(String s, String compareWith, String  format) {
@@ -946,7 +958,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareWeeks(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareWeeks(c, compareTime) == 0;
     }
 
     public static boolean dateTimeEqWeek(String s, String compareWith, String  format) {
@@ -962,7 +975,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareMonths(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareMonths(c, compareTime) == 1;
     }
 
     public static boolean dateTimeAfterMonth(String s, String compareWith, String  format) {
@@ -977,7 +991,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareMonths(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareMonths(c, compareTime) == -1;
     }
 
     public static boolean dateTimeBeforeMonth(String s, String compareWith, String  format) {
@@ -992,7 +1007,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareMonths(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareMonths(c, compareTime) == 0;
     }
 
     public static boolean dateTimeEqMonth(String s, String compareWith, String  format) {
@@ -1008,7 +1024,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareYears(c, compareTime) == 1;
+        if (c == null || compareTime == null) return false;
+        return v.compareYears(c, compareTime) == 1;
     }
 
     public static boolean dateTimeAfterYear(String s, String compareWith, String  format) {
@@ -1023,7 +1040,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareYears(c, compareTime) == -1;
+        if (c == null || compareTime == null) return false;
+        return v.compareYears(c, compareTime) == -1;
     }
 
     public static boolean dateTimeBeforeYear(String s, String compareWith, String  format) {
@@ -1038,7 +1056,8 @@ public class RuleSet {
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
-        return c != null && v.compareYears(c, compareTime) == 0;
+        if (c == null || compareTime == null) return false;
+        return v.compareYears(c, compareTime) == 0;
     }
 
     public static boolean dateTimeEqYear(String s, String compareWith, String  format) {
