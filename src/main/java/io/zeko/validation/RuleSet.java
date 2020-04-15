@@ -547,11 +547,11 @@ public class RuleSet {
         Date d = v.validate(s, format, timezone);
         Date startDate = v.validate(start, format, timezone);
         Date endDate = v.validate(end, format, timezone);
+        if (d == null || startDate == null || endDate == null) return false;
+
         int resStart = v.compareDates(startDate, d, timezone);
         int resEnd = v.compareDates(endDate, d, timezone);
-
-        return d != null && startDate != null && endDate != null &&
-                (resStart == -1 || resStart == 0) && (resEnd == 1 || resEnd == 0);
+        return (resStart == -1 || resStart == 0) && (resEnd == 1 || resEnd == 0);
     }
 
     public static boolean dateBetween(String s, String start, String end, String format) {
@@ -566,7 +566,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareDates(d, compareDate, timezone) == 1;
+        if (d == null || compareDate == null) return false;
+        return v.compareDates(d, compareDate, timezone) == 1;
     }
 
     public static boolean dateAfter(String s, String compareWith, String format) {
@@ -581,7 +582,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareDates(d, compareDate, timezone) == -1;
+        if (d == null || compareDate == null) return false;
+        return v.compareDates(d, compareDate, timezone) == -1;
     }
 
     public static boolean dateBefore(String s, String compareWith, String format) {
@@ -596,7 +598,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareDates(d, compareDate, timezone) == 0;
+        if (d == null || compareDate == null) return false;
+        return v.compareDates(d, compareDate, timezone) == 0;
     }
 
     public static boolean dateEq(String s, String compareWith, String format) {
@@ -611,7 +614,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareYears(d, compareDate, timezone) == 1;
+        if (d == null || compareDate == null) return false;
+        return v.compareYears(d, compareDate, timezone) == 1;
     }
 
     public static boolean dateAfterYear(String s, String compareWith, String format) {
@@ -626,7 +630,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareYears(d, compareDate, timezone) == -1;
+        if (d == null || compareDate == null) return false;
+        return v.compareYears(d, compareDate, timezone) == -1;
     }
 
     public static boolean dateBeforeYear(String s, String compareWith, String format) {
@@ -641,7 +646,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareYears(d, compareDate, timezone) == 0;
+        if (d == null || compareDate == null) return false;
+        return v.compareYears(d, compareDate, timezone) == 0;
     }
 
     public static boolean dateEqYear(String s, String compareWith, String format) {
@@ -656,7 +662,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareMonths(d, compareDate, timezone) == 1;
+        if (d == null || compareDate == null) return false;
+        return v.compareMonths(d, compareDate, timezone) == 1;
     }
 
     public static boolean dateAfterMonth(String s, String compareWith, String format) {
@@ -671,7 +678,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareMonths(d, compareDate, timezone) == -1;
+        if (d == null || compareDate == null) return false;
+        return v.compareMonths(d, compareDate, timezone) == -1;
     }
 
     public static boolean dateBeforeMonth(String s, String compareWith, String format) {
@@ -686,7 +694,8 @@ public class RuleSet {
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
-        return d != null && v.compareMonths(d, compareDate, timezone) == 0;
+        if (d == null || compareDate == null) return false;
+        return v.compareMonths(d, compareDate, timezone) == 0;
     }
 
     public static boolean dateEqMonth(String s, String compareWith, String format) {
