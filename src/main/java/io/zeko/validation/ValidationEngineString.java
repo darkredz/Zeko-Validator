@@ -71,7 +71,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString regex(String regexExpr) {
-        return regex(regexExpr);
+        return regex(regexExpr, null);
     }
 
     /**
