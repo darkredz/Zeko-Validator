@@ -90,8 +90,8 @@ public class Validator {
             validate = field.optional();
         }
         rules.forEach((ruleName, args) -> {
-            if (ruleName != "required" && ruleName != "requiredLoose" && ruleName != "optional") {
-                if (ruleName == "inArray") {
+            if (!ruleName.equals("required") && !ruleName.equals("requiredLoose") && !ruleName.equals("optional")) {
+                if (ruleName.equals("inArray")) {
                     if (args.get(0) instanceof Integer) {
                         int[] items = ArrayUtils.toPrimitive(args.toArray(new Integer[args.size()]));
                         validate.inArray(items);
@@ -101,7 +101,7 @@ public class Validator {
                         validate.inArray(items);
                     }
                 }
-                else if (ruleName == "notInArray") {
+                else if (ruleName.equals("notInArray")) {
                     if (args.get(0) instanceof Integer) {
                         int[] items = ArrayUtils.toPrimitive(args.toArray(new Integer[args.size()]));
                         validate.notInArray(items);
@@ -111,14 +111,14 @@ public class Validator {
                         validate.notInArray(items);
                     }
                 }
-                else if (ruleName == "url" && args.size() > 0) {
+                else if (ruleName.equals("url") && args.size() > 0) {
                     if (args.get(0) instanceof String) {
                         String[] schemes = new String[args.size()];
                         args.toArray(schemes);
                         validate.url(schemes);
                     }
                 }
-                else if (ruleName == "separateByInArray" && args.size() > 0) {
+                else if (ruleName.equals("separateByInArray") && args.size() > 0) {
                     if (args.get(0) instanceof String) {
                         String delimiter = (String) args.get(0);
                         String[] all = new String[args.size()];
