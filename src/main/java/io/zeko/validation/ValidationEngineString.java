@@ -540,7 +540,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString min(float min, String message) {
-        return must((s) -> RuleSet.min(s, min), message, String.format("min;%f", min));
+        return must((s) -> RuleSet.min(s, min), message, String.format("min;%.2f", min));
     }
 
     public ValidationEngineString min(float min) {
@@ -548,7 +548,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString max(float max, String message) {
-        return must((s) -> RuleSet.max(s, max), message, String.format("max;%f", max));
+        return must((s) -> RuleSet.max(s, max), message, String.format("max;%.2f", max));
     }
 
     public ValidationEngineString max(float max) {
@@ -572,7 +572,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString min(double min, String message) {
-        return must((s) -> RuleSet.min(s, min), message, String.format("min;%f", min));
+        return must((s) -> RuleSet.min(s, min), message, String.format("min;%.2f", min));
     }
 
     public ValidationEngineString min(double min) {
@@ -580,7 +580,7 @@ public class ValidationEngineString extends ValidationEngine<String, ValidationE
     }
 
     public ValidationEngineString max(double max, String message) {
-        return must((s) -> RuleSet.max(s, max), message, String.format("max;%f", max));
+        return must((s) -> RuleSet.max(s, max), message, String.format("max;%.2f", max));
     }
 
     public ValidationEngineString max(double max) {
