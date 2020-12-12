@@ -6,6 +6,7 @@ import org.apache.commons.validator.routines.DateValidator;
 import org.apache.commons.validator.routines.TimeValidator;
 import org.apache.commons.validator.routines.UrlValidator;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static java.util.Objects.isNull;
@@ -559,6 +560,15 @@ public class RuleSet {
     }
 
     public static boolean dateBetween(String s, String start, String end, String format, TimeZone timezone) {
+        if (start.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            start = df.format(new Date());
+        } else if (end.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            end = df.format(new Date());
+        }
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date startDate = v.validate(start, format, timezone);
@@ -579,6 +589,11 @@ public class RuleSet {
     }
 
     public static boolean dateAfter(String s, String compareWith, String format, TimeZone timezone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            compareWith = df.format(new Date());
+        }
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
@@ -595,6 +610,11 @@ public class RuleSet {
     }
 
     public static boolean dateBefore(String s, String compareWith, String format, TimeZone timezone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            compareWith = df.format(new Date());
+        }
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
@@ -611,6 +631,11 @@ public class RuleSet {
     }
 
     public static boolean dateEq(String s, String compareWith, String format, TimeZone timezone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            compareWith = df.format(new Date());
+        }
         DateValidator v = DateValidator.getInstance();
         Date d = v.validate(s, format, timezone);
         Date compareDate = v.validate(compareWith, format, timezone);
@@ -871,11 +896,20 @@ public class RuleSet {
         return dateTimeFormat(s,  "yyyy-MM-dd'T'H:mm:ss", TimeZone.getDefault());
     }
 
-    public static boolean dateTimeBetween(String s, String start, String end, String format, TimeZone timeZone) {
+    public static boolean dateTimeBetween(String s, String start, String end, String format, TimeZone timezone) {
+        if (start.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            start = df.format(new Date());
+        } else if (end.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timezone);
+            end = df.format(new Date());
+        }
         CalendarValidator v = CalendarValidator.getInstance();
-        Calendar d = v.validate(s, format, timeZone);
-        Calendar startTime = v.validate(start, format, timeZone);
-        Calendar endTime = v.validate(end, format, timeZone);
+        Calendar d = v.validate(s, format, timezone);
+        Calendar startTime = v.validate(start, format, timezone);
+        Calendar endTime = v.validate(end, format, timezone);
         if (d == null || startTime == null || endTime == null) return false;
         int resStart = v.compareDates(startTime, d);
         int resEnd = v.compareDates(endTime, d);
@@ -891,6 +925,11 @@ public class RuleSet {
     }
 
     public static boolean dateTimeAfter(String s, String compareWith, String format, TimeZone timeZone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timeZone);
+            compareWith = df.format(new Date());
+        }
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
@@ -907,6 +946,11 @@ public class RuleSet {
     }
 
     public static boolean dateTimeBefore(String s, String compareWith, String format, TimeZone timeZone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timeZone);
+            compareWith = df.format(new Date());
+        }
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
@@ -923,6 +967,11 @@ public class RuleSet {
     }
 
     public static boolean dateTimeEq(String s, String compareWith, String format, TimeZone timeZone) {
+        if (compareWith.equals("now")) {
+            SimpleDateFormat df = new SimpleDateFormat(format);
+            df.setTimeZone(timeZone);
+            compareWith = df.format(new Date());
+        }
         CalendarValidator v = CalendarValidator.getInstance();
         Calendar c = v.validate(s, format, timeZone);
         Calendar compareTime = v.validate(compareWith, format, timeZone);
